@@ -1,0 +1,160 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6t07elbipubm"]
+
+[ext_resource type="Texture2D" uid="uid://bjq87pvos5p20" path="res://Assets/UI/Menu/Pause_menu_overlay.png" id="1_7vsck"]
+[ext_resource type="Script" path="res://Menus/pause_menu.gd" id="1_xcyf0"]
+[ext_resource type="Texture2D" uid="uid://drfxxq87bb6u3" path="res://Assets/UI/Menu/Main_menu_block.png" id="2_chq8f"]
+[ext_resource type="Texture2D" uid="uid://2ucbyujpiary" path="res://Assets/UI/Menu/Main_menu_banner.png" id="3_otxf1"]
+[ext_resource type="Texture2D" uid="uid://bgkvjbwo5ue4m" path="res://Assets/UI/Menu/Resume_Button.png" id="3_wtl1u"]
+[ext_resource type="Texture2D" uid="uid://drqxjcinuyg1t" path="res://Assets/UI/Menu/Paused_Label.png" id="4_qj6j7"]
+[ext_resource type="Texture2D" uid="uid://d1tcyaafw2upg" path="res://Assets/UI/Exit_Button.png" id="5_7104f"]
+[ext_resource type="Texture2D" uid="uid://wfcvnopfy216" path="res://Assets/UI/Menu/MainMeu_Button.png" id="5_loop0"]
+[ext_resource type="Texture2D" uid="uid://dm8g228yy4atv" path="res://Assets/UI/Menu/Button_Frame.png" id="6_036je"]
+[ext_resource type="Texture2D" uid="uid://ddj1xcsff4y7i" path="res://Assets/UI/Menu/Settings_Button.png" id="7_37f8r"]
+[ext_resource type="PackedScene" uid="uid://b8vc2qk0ruvko" path="res://Menus/settings_menu.tscn" id="11_8bxa7"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xcyf0")
+
+[node name="Overlay" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_7vsck")
+
+[node name="PauseInterface" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Block" type="TextureRect" parent="PauseInterface"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 698.0
+offset_top = -20.0
+offset_right = 1182.0
+offset_bottom = 1060.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_chq8f")
+
+[node name="Banner" type="TextureRect" parent="PauseInterface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 595.0
+offset_right = 1285.0
+offset_bottom = 272.0
+grow_horizontal = 2
+texture = ExtResource("3_otxf1")
+
+[node name="Paused" type="TextureRect" parent="PauseInterface"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 824.5
+offset_top = 245.0
+offset_right = 1055.5
+offset_bottom = 333.0
+grow_horizontal = 2
+texture = ExtResource("4_qj6j7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="PauseInterface"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 920.0
+offset_top = 500.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseInterface/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -44.0
+offset_right = 98.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="TextureRect" parent="PauseInterface/Control/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_wtl1u")
+
+[node name="Settings" type="TextureRect" parent="PauseInterface/Control/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_37f8r")
+
+[node name="MainMenu" type="TextureRect" parent="PauseInterface/Control/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_loop0")
+
+[node name="Exit" type="TextureRect" parent="PauseInterface/Control/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_7104f")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseInterface/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="TextureButton" parent="PauseInterface/Control/VBoxContainer2"]
+layout_mode = 2
+texture_hover = ExtResource("6_036je")
+
+[node name="Settings" type="TextureButton" parent="PauseInterface/Control/VBoxContainer2"]
+layout_mode = 2
+texture_hover = ExtResource("6_036je")
+
+[node name="MainMenu" type="TextureButton" parent="PauseInterface/Control/VBoxContainer2"]
+layout_mode = 2
+texture_hover = ExtResource("6_036je")
+
+[node name="Exit" type="TextureButton" parent="PauseInterface/Control/VBoxContainer2"]
+layout_mode = 2
+texture_hover = ExtResource("6_036je")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("11_8bxa7")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="PauseInterface/Control/VBoxContainer2/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseInterface/Control/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PauseInterface/Control/VBoxContainer2/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PauseInterface/Control/VBoxContainer2/Exit" to="." method="_on_exit_pressed"]
+[connection signal="close_settings" from="SettingsMenu" to="." method="close_settings"]

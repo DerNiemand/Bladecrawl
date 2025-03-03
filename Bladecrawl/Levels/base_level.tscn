@@ -1,0 +1,357 @@
+[gd_scene load_steps=24 format=3 uid="uid://qrop3sotky6n"]
+
+[ext_resource type="TileSet" uid="uid://dag54pso8iv8m" path="res://Levels/Tile_set_V6.tres" id="1_lqua5"]
+[ext_resource type="Script" path="res://Levels/base_level.gd" id="1_y681v"]
+[ext_resource type="Texture2D" uid="uid://c63lc5mj0taw" path="res://Assets/Rooms/Doors_Trapdoors/Door/Door_closed.png" id="4_i7kd2"]
+[ext_resource type="Texture2D" uid="uid://dfumts6tadnd8" path="res://Assets/Rooms/Doors_Trapdoors/Door/Door_half.png" id="5_kaww6"]
+[ext_resource type="Texture2D" uid="uid://pl8qllcb74jr" path="res://Assets/Rooms/Doors_Trapdoors/Door/Door_open.png" id="6_8bjwn"]
+[ext_resource type="Texture2D" uid="uid://o557ect6y1al" path="res://Assets/Rooms/Doors_Trapdoors/Bottom Trapdoor/Bladecrawl Bottom Trapdoor Closed_export.png" id="7_6j5kk"]
+[ext_resource type="Texture2D" uid="uid://drun06mhfkx5j" path="res://Assets/Rooms/Doors_Trapdoors/Bottom Trapdoor/Bladecrawl Bottom Trapdoor Half Opened_export.png" id="8_mqyap"]
+[ext_resource type="Texture2D" uid="uid://blj5mbsbhdgj1" path="res://Assets/Rooms/Doors_Trapdoors/Bottom Trapdoor/Bladecrawl Bottom Trapdoor Open_export.png" id="9_es12g"]
+[ext_resource type="Texture2D" uid="uid://cqe5864ebw31a" path="res://Assets/Rooms/Doors_Trapdoors/Top Trapdoor/Bladecrawl Top Trapdoor Closed_export.png" id="10_x1lif"]
+[ext_resource type="Texture2D" uid="uid://dgnxrfpayecj5" path="res://Assets/Rooms/Doors_Trapdoors/Top Trapdoor/Bladecrawl Top Trapdoor Half Opened with Ladder_export.png" id="11_60dos"]
+[ext_resource type="Texture2D" uid="uid://dd7j6xx7g2g1f" path="res://Assets/Rooms/Doors_Trapdoors/Top Trapdoor/Bladecrawl Top Trapdoor Open with Ladder_export.png" id="12_v11ay"]
+
+[sub_resource type="Animation" id="Animation_347hq"]
+resource_name = "Door_Close"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorRight/AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", -1.0, true],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorLeft/AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", -1.0, true],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HatchBottom/AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", -1.0, true],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HatchTop/AnimatedSprite2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", -1.0, true],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mewbd"]
+resource_name = "Door_Open"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorRight/AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorLeft/AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HatchBottom/AnimatedSprite2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HatchTop/AnimatedSprite2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Open", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_gtcdo"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oev3i"]
+_data = {
+"Door_Close": SubResource("Animation_347hq"),
+"Door_Open": SubResource("Animation_mewbd"),
+"RESET": SubResource("Animation_gtcdo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf0ui"]
+size = Vector2(78.5, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34hcn"]
+size = Vector2(77.5, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahebh"]
+size = Vector2(106, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3b10"]
+size = Vector2(103, 138)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_byit3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_i7kd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kaww6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8bjwn")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwweq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_i7kd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kaww6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8bjwn")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_koqwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6j5kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mqyap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_es12g")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvsqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_x1lif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_60dos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_v11ay")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_y681v")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("1_lqua5")
+format = 2
+layer_0/name = "background"
+layer_0/z_index = 3
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 0, 1, 524288, 0, 1, 589824, 0, 1, 655360, 0, 1, 720896, 0, 1, 786432, 0, 1, 851968, 0, 1, 917504, 0, 1, 983040, 0, 1, 1048576, 196608, 268435460, 1048577, 65536, 4, 2, 65536, 0, 1048578, 65536, 4, 3, 65536, 0, 1048579, 65536, 4, 4, 65536, 0, 1048580, 65536, 4, 5, 65536, 0, 1048581, 65536, 4, 6, 65536, 0, 1048582, 65536, 4, 7, 65536, 0, 1048583, 65536, 4, 8, 65536, 0, 1048584, 65536, 4, 9, 65536, 0, 1048585, 65536, 4, 10, 65536, 0, 1048586, 65536, 4, 11, 65536, 0, 1048587, 65536, 4, 12, 65536, 0, 1048588, 65536, 4, 13, 65536, 0, 1048589, 65536, 4, 14, 65536, 0, 1048590, 65536, 4, 15, 65536, 0, 1048591, 65536, 4, 16, 65536, 0, 1048592, 65536, 4, 17, 65536, 0, 1048593, 65536, 4, 18, 65536, 0, 1048594, 65536, 4, 19, 65536, 0, 1048595, 65536, 4, 20, 65536, 0, 1048596, 65536, 4, 21, 65536, 0, 1048597, 65536, 4, 22, 65536, 0, 1048598, 65536, 4, 23, 65536, 0, 1048599, 65536, 4, 24, 65536, 0, 1048600, 65536, 4, 25, 65536, 0, 1048601, 65536, 4, 26, 65536, 0, 1048602, 65536, 4, 27, 65536, 0, 1048603, 65536, 4, 28, 65536, 0, 1048604, 65536, 4, 29, 0, 268435456, 65565, 0, 268435457, 131101, 0, 268435457, 196637, 0, 268435457, 262173, 0, 268435457, 327709, 0, 268435457, 393245, 0, 268435457, 458781, 0, 268435457, 524317, 0, 268435457, 589853, 0, 268435457, 655389, 0, 268435457, 720925, 0, 268435457, 786461, 0, 268435457, 851997, 0, 268435457, 917533, 0, 268435457, 983069, 0, 268435457, 1048605, 196608, 4, 1, 65536, 0)
+layer_1/name = "Ground"
+layer_1/z_index = 3
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Platforms"
+layer_2/z_index = 3
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Decorations"
+layer_3/tile_data = PackedInt32Array()
+layer_4/name = "Threats"
+layer_4/z_index = 3
+layer_4/tile_data = PackedInt32Array()
+
+[node name="OpenAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oev3i")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="TransitionAreas" type="Node2D" parent="."]
+
+[node name="DoorAreaRight" type="Area2D" parent="TransitionAreas"]
+position = Vector2(1855, 1014)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/DoorAreaRight"]
+position = Vector2(-41.75, -47.5)
+shape = SubResource("RectangleShape2D_gf0ui")
+
+[node name="Marker2D" type="Marker2D" parent="TransitionAreas/DoorAreaRight"]
+position = Vector2(-48, 9)
+
+[node name="DoorAreaLeft" type="Area2D" parent="TransitionAreas"]
+position = Vector2(65, 1016)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/DoorAreaLeft"]
+position = Vector2(35.25, -47)
+shape = SubResource("RectangleShape2D_34hcn")
+
+[node name="Marker2D" type="Marker2D" parent="TransitionAreas/DoorAreaLeft"]
+position = Vector2(47, 9)
+
+[node name="HatchAreaBottom" type="Area2D" parent="TransitionAreas"]
+position = Vector2(950, 1020)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/HatchAreaBottom"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_ahebh")
+
+[node name="Marker2D" type="Marker2D" parent="TransitionAreas/HatchAreaBottom"]
+
+[node name="HatchAreaTop" type="Area2D" parent="TransitionAreas"]
+position = Vector2(950, 64)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/HatchAreaTop"]
+position = Vector2(-8.5, 69)
+shape = SubResource("RectangleShape2D_t3b10")
+
+[node name="Marker2D" type="Marker2D" parent="TransitionAreas/HatchAreaTop"]
+position = Vector2(3, 0)
+
+[node name="DoorRight" type="Node2D" parent="."]
+position = Vector2(1896, 962)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DoorRight"]
+z_index = 6
+position = Vector2(-80, -7)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_byit3")
+animation = &"Open"
+frame = 2
+flip_h = true
+
+[node name="DoorLeft" type="Node2D" parent="."]
+position = Vector2(25, 965)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DoorLeft"]
+z_index = 6
+position = Vector2(80, -10)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_rwweq")
+animation = &"Open"
+frame = 2
+
+[node name="HatchBottom" type="Node2D" parent="."]
+position = Vector2(950, 1020)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HatchBottom"]
+position = Vector2(0, -71)
+sprite_frames = SubResource("SpriteFrames_koqwu")
+animation = &"Open"
+frame = 2
+frame_progress = 1.0
+
+[node name="HatchTop" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(950, 49)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HatchTop"]
+position = Vector2(-10, 67)
+sprite_frames = SubResource("SpriteFrames_wvsqj")
+animation = &"Open"
+frame = 2
+frame_progress = 1.0
+
+[node name="Drops" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="TransitionAreas/DoorAreaRight" to="." method="_transition" binds= [0, NodePath("TransitionAreas/DoorAreaRight/Marker2D")]]
+[connection signal="body_exited" from="TransitionAreas/DoorAreaRight" to="." method="transition_unavailable"]
+[connection signal="body_entered" from="TransitionAreas/DoorAreaLeft" to="." method="_transition" binds= [8, NodePath("TransitionAreas/DoorAreaLeft/Marker2D")]]
+[connection signal="body_exited" from="TransitionAreas/DoorAreaLeft" to="." method="transition_unavailable"]
+[connection signal="body_entered" from="TransitionAreas/HatchAreaBottom" to="." method="_transition" binds= [4, NodePath("TransitionAreas/HatchAreaBottom/Marker2D")]]
+[connection signal="body_exited" from="TransitionAreas/HatchAreaBottom" to="." method="transition_unavailable"]
+[connection signal="body_entered" from="TransitionAreas/HatchAreaTop" to="." method="_transition" binds= [12, NodePath("TransitionAreas/HatchAreaTop/Marker2D")]]
+[connection signal="body_exited" from="TransitionAreas/HatchAreaTop" to="." method="transition_unavailable"]

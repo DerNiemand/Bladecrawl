@@ -1,0 +1,93 @@
+[gd_scene load_steps=18 format=3 uid="uid://d1vj7aj4x45q7"]
+
+[ext_resource type="Texture2D" uid="uid://baj1sbptlqj0c" path="res://Assets/Companion/transform/PCA_Appearance_0.png" id="1_vhwp2"]
+[ext_resource type="Texture2D" uid="uid://bruh0pnmkmvr6" path="res://Assets/Companion/transform/PCA_Appearance_1.png" id="2_e74gu"]
+[ext_resource type="Texture2D" uid="uid://cw30oeqaeig3a" path="res://Assets/Companion/transform/PCA_Appearance_2.png" id="3_x0m2y"]
+[ext_resource type="Texture2D" uid="uid://fn8i7bdqhqan" path="res://Assets/Companion/transform/PCA_Appearance_3.png" id="4_jp7f7"]
+[ext_resource type="Texture2D" uid="uid://drnrm2ex36sjf" path="res://Assets/Companion/transform/PCA_Appearance_4.png" id="5_kjy27"]
+[ext_resource type="Texture2D" uid="uid://dmkl23dxqkblc" path="res://Assets/Companion/fly/PCA_fly_0.PNG" id="6_utcnw"]
+[ext_resource type="Texture2D" uid="uid://8egc4njwn3t" path="res://Assets/Companion/fly/PCA_fly_1.PNG" id="7_3ktwb"]
+[ext_resource type="Texture2D" uid="uid://ce4be1wn26a0f" path="res://Assets/Companion/fly/PCA_fly_2.PNG" id="8_aw5xx"]
+[ext_resource type="Texture2D" uid="uid://dadr23u58gfag" path="res://Assets/Companion/fly/PCA_fly_3.PNG" id="9_2sagu"]
+[ext_resource type="Texture2D" uid="uid://vqfamxt5h237" path="res://Assets/Companion/fly/PCA_fly_4.PNG" id="10_twxpl"]
+[ext_resource type="Texture2D" uid="uid://d088lldw0nqgv" path="res://Assets/Companion/transform/PCA_orb_0.png" id="11_tp82k"]
+[ext_resource type="Texture2D" uid="uid://cytu8mnj0dxnd" path="res://Assets/Companion/transform/PCA_orb_1.png" id="12_6lpr5"]
+[ext_resource type="Texture2D" uid="uid://diksvcp06r1wn" path="res://Assets/Companion/transform/PCA_orb_2.png" id="13_nvuwb"]
+[ext_resource type="Texture2D" uid="uid://ylcosqnl6lra" path="res://Assets/Companion/transform/PCA_orb_3.png" id="14_gv3ro"]
+[ext_resource type="Script" path="res://Player/companion.gd" id="15_nqvom"]
+[ext_resource type="Texture2D" uid="uid://q5td3onal5nq" path="res://Assets/Companion/transform/PCA_orb_5.png" id="16_ognd8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8sr8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vhwp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e74gu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x0m2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jp7f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kjy27")
+}],
+"loop": false,
+"name": &"Appear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_utcnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3ktwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_aw5xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2sagu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_twxpl")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_tp82k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6lpr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nvuwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gv3ro")
+}],
+"loop": false,
+"name": &"Transformation",
+"speed": 8.0
+}]
+
+[node name="Companion" type="AnimatedSprite2D"]
+top_level = true
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_m8sr8")
+animation = &"Flying"
+autoplay = "Flying"
+frame_progress = 0.116943
+script = ExtResource("15_nqvom")
+speed = 3.5
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+texture = ExtResource("16_ognd8")
+texture_scale = 12.16

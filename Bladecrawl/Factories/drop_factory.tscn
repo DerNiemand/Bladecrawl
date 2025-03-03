@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://cro7v8eie8sxs"]
+
+[ext_resource type="Script" path="res://Factories/drop_factory.gd" id="1_gthqd"]
+[ext_resource type="Script" path="res://Factories/Drops.gd" id="2_juotb"]
+[ext_resource type="Texture2D" uid="uid://cfe00h0pyg4vl" path="res://Assets/Drops/Green_gem.png" id="4_pj0lj"]
+[ext_resource type="Texture2D" uid="uid://l0xyoinh3h3l" path="res://Assets/Drops/Red_gem.png" id="5_g51eb"]
+[ext_resource type="Texture2D" uid="uid://dqhel0tf2muvn" path="res://Assets/Drops/Blue_gem.png" id="6_3tdol"]
+
+[node name="DropFactory" type="Node"]
+script = ExtResource("1_gthqd")
+
+[node name="GemGreen" type="RigidBody2D" parent="."]
+top_level = true
+position = Vector2(-174, -88)
+collision_layer = 16
+collision_mask = 16
+lock_rotation = true
+freeze = true
+max_contacts_reported = 8
+contact_monitor = true
+script = ExtResource("2_juotb")
+score = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="GemGreen"]
+position = Vector2(2, -4)
+texture = ExtResource("4_pj0lj")
+
+[node name="Area2D" type="Area2D" parent="GemGreen"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GemGreen/Area2D"]
+position = Vector2(139, 88)
+polygon = PackedVector2Array(-139, -57, -159, -71, -159, -105, -140, -119, -120, -105, -120, -71)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GemGreen"]
+polygon = PackedVector2Array(-1, -22, -14, -11, -14, 11, 0, 22, 12, 11, 12, -11)
+
+[node name="GemBlue" type="RigidBody2D" parent="."]
+top_level = true
+z_index = 5
+position = Vector2(-96, -88)
+collision_layer = 16
+collision_mask = 16
+lock_rotation = true
+freeze = true
+max_contacts_reported = 8
+contact_monitor = true
+script = ExtResource("2_juotb")
+score = 300
+
+[node name="Sprite2D" type="Sprite2D" parent="GemBlue"]
+position = Vector2(2, -4)
+texture = ExtResource("6_3tdol")
+
+[node name="Area2D" type="Area2D" parent="GemBlue"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GemBlue/Area2D"]
+position = Vector2(139, 88)
+polygon = PackedVector2Array(-139, -57, -159, -71, -159, -105, -140, -119, -120, -105, -120, -71)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GemBlue"]
+polygon = PackedVector2Array(-1, -22, -14, -11, -14, 11, 0, 22, 12, 11, 12, -11)
+
+[node name="GemRed" type="RigidBody2D" parent="."]
+top_level = true
+z_index = 5
+position = Vector2(-135, -88)
+collision_layer = 16
+collision_mask = 16
+lock_rotation = true
+freeze = true
+max_contacts_reported = 8
+contact_monitor = true
+script = ExtResource("2_juotb")
+drop_type = 1
+score = 300
+
+[node name="Sprite2D" type="Sprite2D" parent="GemRed"]
+position = Vector2(2, -4)
+texture = ExtResource("5_g51eb")
+
+[node name="Area2D" type="Area2D" parent="GemRed"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GemRed/Area2D"]
+position = Vector2(139, 88)
+polygon = PackedVector2Array(-139, -57, -159, -71, -159, -105, -140, -119, -120, -105, -120, -71)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GemRed"]
+polygon = PackedVector2Array(-1, -22, -14, -11, -14, 11, 0, 22, 12, 11, 12, -11)
+
+[connection signal="body_entered" from="GemGreen/Area2D" to="GemGreen" method="collected"]
+[connection signal="body_entered" from="GemBlue/Area2D" to="GemBlue" method="collected"]
+[connection signal="body_entered" from="GemRed/Area2D" to="GemRed" method="collected"]

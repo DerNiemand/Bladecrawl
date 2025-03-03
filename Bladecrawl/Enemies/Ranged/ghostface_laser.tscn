@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://0k7pfky773y4"]
+
+[ext_resource type="Script" path="res://Enemies/Ranged/ranged_projectile.gd" id="1_0r2xm"]
+[ext_resource type="Texture2D" uid="uid://cm8yane5ar6kk" path="res://Assets/Enemies/Ghostface/Laser/EGA_Laser_2.png" id="2_edhdn"]
+[ext_resource type="Texture2D" uid="uid://bpv337161qkbs" path="res://Assets/Enemies/Ghostface/Laser/EGA_Laser_3.png" id="3_l8rsd"]
+[ext_resource type="Texture2D" uid="uid://ikee66odw775" path="res://Assets/Enemies/Ghostface/Laser/EGA_Laser_0.png" id="4_a3o00"]
+[ext_resource type="Texture2D" uid="uid://ldrh4n4rsafa" path="res://Assets/Enemies/Ghostface/Laser/EGA_Laser_1.png" id="5_bsun0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emc6d"]
+size = Vector2(100, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wiov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_edhdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l8rsd")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a3o00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bsun0")
+}],
+"loop": false,
+"name": &"Windup",
+"speed": 10.0
+}]
+
+[node name="GhostfaceLaser" type="RigidBody2D"]
+top_level = true
+collision_layer = 0
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+max_contacts_reported = 1
+contact_monitor = true
+angular_damp = 100.0
+script = ExtResource("1_0r2xm")
+piercing = false
+projectile_speed = 1000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-50, 0)
+shape = SubResource("RectangleShape2D_emc6d")
+debug_color = Color(1, 0.00128682, 0.079718, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, 9)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_0wiov")
+animation = &"Attack"
+
+[connection signal="body_entered" from="." to="." method="_on_hit"]

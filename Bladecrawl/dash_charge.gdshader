@@ -1,0 +1,98 @@
+shader_type canvas_item;
+
+
+uniform float removed_segments:hint_range(0., 1.) = 0.;
+uniform vec4 ring_color : source_color = vec4(0,1,0,1);
+uniform vec4 bg_color : source_color = vec4(0,0,0,1);
+uniform vec4 bg_line_color : source_color = vec4(0.25,0.25,0.25,1);
+uniform vec4 empty_cell_color : source_color = vec4(0.25,0.25,0.25,1);
+uniform bool antialias = true;
+uniform float pixelFactor : hint_range(0,1) = 0;
+uniform float radius :hint_range(0, 1) = 0.7;
+uniform float line_width :hint_range(0, 1) = 0.21;
+uniform float bg_width :hint_range(0, 1) = 0.28;
+uniform float start_angle:hint_range(0., 360.) = 0.;
+uniform float segment_spacing:hint_range(0., 1.) = 0.0;
+uniform float segment_angle:hint_range(0., 1.) = 0.;
+uniform int segment_count = 0;
+
+uniform vec4 cd_color : source_color = vec4(1,1,1,0.75);
+uniform float removed_cd : hint_range(0.,1.);
+
+mat2 tex_rotate(float _angle){
+	return mat2(vec2(cos(_angle), -sin(_angle)), vec2(sin(_angle), cos(_angle)));
+}
+
+void fragment(){
+	vec2 uv;
+	if(pixelFactor != 0.){
+		vec2 pixelNumber = vec2(textureSize(TEXTURE, 0)) * pixelFactor;
+		vec2 pixelated_UV = round(UV * pixelNumber) / pixelNumber;
+		uv = (pixelated_UV * 2.0 - 1.0) * tex_rotate((-radians(start_angle)));
+	}else{
+		uv = (UV * 2.0 - 1.0) * tex_rotate((-radians(start_angle)));
+	}
+	
+	float angle = atan(uv.x, uv.y) + PI;
+	float segment_size = (2. * PI) / float(segment_count);
+	float segment = abs(sin(mod(angle + PI * 2. * segment_angle + segment_size / 2., segment_size) - segment_size / 2.)) * length(uv) - segment_spacing;
+	angle -= removed_segments * 2. * PI;
+	float circle = length(uv) - radius;
+	float ring = abs(circle) - line_width;
+	float background = abs(circle) - bg_width;
+	
+	if(antialias){
+		ring /= fwidth(circle);
+		angle /= fwidth(angle);
+		segment /= fwidth(segment);
+		background /= fwidth(background);
+	}else{
+		ring = ceil(ring);
+		angle = ceil(angle);
+		segment = ceil(segment);
+		background = ceil(background);
+	}
+	ring = 1. - ring;
+	segment = 1. - segment;
+	background = 1. - background;
+	
+	ring = clamp(ring,0,1);
+	angle = clamp(angle,0,1);
+	segment = clamp(segment,0,1);
+	background = clamp(background,0,1);
+	float base_ring = ring;
+	
+	
+	ring -= angle;
+	if(segment_count >= 2) ring -= segment;
+	ring = clamp(ring,0,1);
+	
+	if(ring > 0.){
+		COLOR = ring_color;
+		COLOR.a = ring;
+	}else{
+		if(segment >= 1. && base_ring >= 1.){
+			COLOR = bg_line_color;
+		}else if(base_ring >= 1.){
+			COLOR = empty_cell_color;
+		}else{
+			COLOR = bg_color;
+		}
+		COLOR.a = background;
+	
+	
+	float cd_angle = atan(uv.x, uv.y) + PI;
+	cd_angle -= removed_cd * 2. * PI;
+	float cd_ring = abs(circle) - line_width;
+	//cd_ring = 1. - cd_ring;
+	cd_ring -= cd_angle;
+	cd_ring = clamp(cd_ring, 0. ,1.);
+	cd_ring -= 0.1;
+	
+	if(cd_ring > 0.){
+		COLOR = cd_color;
+		COLOR.a = ring;
+	}
+	
+	}
+}

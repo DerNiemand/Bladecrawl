@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvkuj3kxhuppg"]
+
+[ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_8xr7x"]
+[ext_resource type="Texture2D" uid="uid://dgufu8iajy8rl" path="res://Assets/Rooms/Background/Background_menu.png" id="2_j7lxn"]
+[ext_resource type="Texture2D" uid="uid://bwb8raqc6802f" path="res://Assets/UI/Play button.png" id="3_kad3w"]
+[ext_resource type="Texture2D" uid="uid://drfxxq87bb6u3" path="res://Assets/UI/Menu/Main_menu_block.png" id="3_rlhxo"]
+[ext_resource type="Texture2D" uid="uid://2ucbyujpiary" path="res://Assets/UI/Menu/Main_menu_banner.png" id="4_b5gwx"]
+[ext_resource type="Texture2D" uid="uid://d1tcyaafw2upg" path="res://Assets/UI/Exit_Button.png" id="4_mtmta"]
+[ext_resource type="Texture2D" uid="uid://ddj1xcsff4y7i" path="res://Assets/UI/Menu/Settings_Button.png" id="5_vswgm"]
+[ext_resource type="Texture2D" uid="uid://dm8g228yy4atv" path="res://Assets/UI/Menu/Button_Frame.png" id="7_mi26l"]
+[ext_resource type="PackedScene" uid="uid://b8vc2qk0ruvko" path="res://Menus/settings_menu.tscn" id="9_cyaa1"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_8xr7x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j7lxn")
+
+[node name="MainMenuInterface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Block" type="TextureRect" parent="CanvasLayer/MainMenuInterface"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = -2.0
+offset_right = 615.0
+offset_bottom = 1078.0
+texture = ExtResource("3_rlhxo")
+
+[node name="Banner" type="TextureRect" parent="CanvasLayer/MainMenuInterface"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 160.0
+offset_right = 718.0
+offset_bottom = 432.0
+texture = ExtResource("4_b5gwx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/MainMenuInterface"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuInterface/Control"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0682292
+anchor_top = 0.5
+anchor_right = 0.172396
+anchor_bottom = 0.5
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="TextureRect" parent="CanvasLayer/MainMenuInterface/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_kad3w")
+
+[node name="Settings" type="TextureRect" parent="CanvasLayer/MainMenuInterface/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_vswgm")
+
+[node name="Exit" type="TextureRect" parent="CanvasLayer/MainMenuInterface/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_mtmta")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MainMenuInterface/Control"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0682292
+anchor_top = 0.5
+anchor_right = 0.172396
+anchor_bottom = 0.5
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="TextureButton" parent="CanvasLayer/MainMenuInterface/Control/VBoxContainer2"]
+layout_mode = 2
+texture_hover = ExtResource("7_mi26l")
+
+[node name="Settings" type="TextureButton" parent="CanvasLayer/MainMenuInterface/Control/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_hover = ExtResource("7_mi26l")
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer/MainMenuInterface/Control/VBoxContainer2"]
+layout_mode = 2
+texture_hover = ExtResource("7_mi26l")
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("9_cyaa1")]
+visible = false
+size_flags_horizontal = 8
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/MainMenuInterface/Control/VBoxContainer2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuInterface/Control/VBoxContainer2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuInterface/Control/VBoxContainer2/Exit" to="." method="_on_exit_pressed"]
+[connection signal="close_settings" from="CanvasLayer/SettingsMenu" to="." method="close_Settings"]

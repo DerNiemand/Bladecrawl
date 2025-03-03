@@ -1,0 +1,156 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8vc2qk0ruvko"]
+
+[ext_resource type="Script" path="res://Menus/settings.gd" id="1_ge4ry"]
+[ext_resource type="Texture2D" uid="uid://jeq3tskyr24g" path="res://Assets/UI/Menu/options_screen_black_op_block.png" id="2_1f774"]
+[ext_resource type="Texture2D" uid="uid://dffkevdxji6bj" path="res://Assets/UI/Menu/options_master_volume.png" id="3_3u1mq"]
+[ext_resource type="Texture2D" uid="uid://cxnhqauewjm2a" path="res://Assets/UI/Menu/Options_Label.png" id="3_i6lgk"]
+[ext_resource type="Texture2D" uid="uid://duovci8qm0hdi" path="res://Assets/UI/Menu/options_screen_bar_sword.png" id="4_khsvy"]
+[ext_resource type="Texture2D" uid="uid://c6ss7nyg3xhrm" path="res://Assets/UI/Menu/options_music_volume.png" id="5_ji8x1"]
+[ext_resource type="Texture2D" uid="uid://cc0avya514me3" path="res://Assets/UI/Menu/options_sfx_volume.png" id="6_djhf5"]
+[ext_resource type="Texture2D" uid="uid://df78byarmayxg" path="res://Assets/UI/Menu/options_full_screen.png" id="7_peh6w"]
+[ext_resource type="Texture2D" uid="uid://dtdn60oct20pg" path="res://Assets/UI/Menu/options_screen_check.png" id="8_wjtgd"]
+[ext_resource type="Texture2D" uid="uid://lsywk1m8xlbm" path="res://Assets/UI/Menu/options_screen_check_box.png" id="9_kunce"]
+[ext_resource type="Texture2D" uid="uid://kg13k8satb4b" path="res://Assets/UI/Menu/Back_Button.png" id="11_ednme"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ge4ry")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -539.0
+offset_right = 550.0
+offset_bottom = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1f774")
+
+[node name="OptionsText" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.0240741
+anchor_right = 0.5
+anchor_bottom = 0.0240741
+offset_left = -177.0
+offset_right = 178.0
+offset_bottom = 88.0
+grow_horizontal = 2
+texture = ExtResource("3_i6lgk")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.527778
+anchor_right = 0.5
+anchor_bottom = 0.527778
+offset_left = -481.0
+offset_top = -418.0
+offset_right = 482.0
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterVolumeText" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_3u1mq")
+stretch_mode = 2
+
+[node name="MasterVolume" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("4_khsvy")
+theme_override_icons/grabber_highlight = ExtResource("4_khsvy")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolumeText" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_ji8x1")
+stretch_mode = 2
+
+[node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("4_khsvy")
+theme_override_icons/grabber_highlight = ExtResource("4_khsvy")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SoundVolumeText" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_djhf5")
+stretch_mode = 2
+
+[node name="SoundVolume" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/center_grabber = 1
+theme_override_icons/grabber = ExtResource("4_khsvy")
+theme_override_icons/grabber_highlight = ExtResource("4_khsvy")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("7_peh6w")
+
+[node name="Fullscreen" type="CheckButton" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_icons/checked = ExtResource("9_kunce")
+theme_override_icons/unchecked = ExtResource("9_kunce")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = 438.0
+offset_top = 972.0
+offset_right = 661.0
+offset_bottom = 1060.0
+texture_normal = ExtResource("11_ednme")
+
+[node name="Check" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 1097.0
+offset_top = 891.0
+offset_right = 1208.0
+offset_bottom = 987.0
+mouse_filter = 2
+texture = ExtResource("8_wjtgd")
+
+[connection signal="drag_ended" from="VBoxContainer/MasterVolume" to="." method="_on_master_volume_drag_ended"]
+[connection signal="value_changed" from="VBoxContainer/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SoundVolume" to="." method="_on_sound_volume_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer4/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

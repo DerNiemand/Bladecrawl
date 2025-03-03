@@ -1,0 +1,524 @@
+[gd_scene load_steps=13 format=3 uid="uid://qrop3sotky6n"]
+
+[ext_resource type="TileSet" uid="uid://dag54pso8iv8m" path="res://Levels/Tile_set_V6.tres" id="1_lqua5"]
+[ext_resource type="Script" path="res://Levels/base_level.gd" id="1_y681v"]
+[ext_resource type="Texture2D" uid="uid://di0deo0a3ckyy" path="res://Assets/Rooms/Tile_Map.png" id="3_31jo1"]
+
+[sub_resource type="Animation" id="Animation_347hq"]
+resource_name = "Door_Close"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorLeft/Closed:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorLeft/Open:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HatchBottom/Closed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HatchBottom/Open:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoorRight/Closed:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DoorRight/Open:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HatchTop/Closed:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HatchTop/Open:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HatchTop/Ladder/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_mewbd"]
+resource_name = "Door_Open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorRight/Closed:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorRight/Open:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HatchBottom/Closed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HatchBottom/Open:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoorLeft/Closed:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DoorLeft/Open:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HatchTop/Closed:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HatchTop/Open:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HatchTop/Ladder/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gtcdo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HatchBottom/Closed:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HatchBottom/Open:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorLeft/Closed:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorLeft/Open:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoorRight/Closed:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DoorRight/Open:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HatchTop/Closed:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HatchTop/Open:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HatchTop/Ladder/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oev3i"]
+_data = {
+"Door_Close": SubResource("Animation_347hq"),
+"Door_Open": SubResource("Animation_mewbd"),
+"RESET": SubResource("Animation_gtcdo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf0ui"]
+size = Vector2(8.5, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34hcn"]
+size = Vector2(7, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahebh"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3b10"]
+size = Vector2(14, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26mlb"]
+size = Vector2(47, 94)
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_y681v")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("1_lqua5")
+format = 2
+layer_0/name = "background"
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 0, 1, 524288, 0, 1, 589824, 0, 1, 655360, 0, 1, 720896, 0, 1, 786432, 0, 1, 851968, 0, 1, 917504, 0, 1, 983040, 0, 1, 1048576, 196608, 268435460, 1, 65536, 0, 1048577, 65536, 4, 2, 65536, 0, 1048578, 65536, 4, 3, 65536, 0, 1048579, 65536, 4, 4, 65536, 0, 1048580, 65536, 4, 5, 65536, 0, 1048581, 65536, 4, 6, 65536, 0, 1048582, 65536, 4, 7, 65536, 0, 1048583, 65536, 4, 8, 65536, 0, 1048584, 65536, 4, 9, 65536, 0, 1048585, 65536, 4, 10, 65536, 0, 1048586, 65536, 4, 11, 65536, 0, 1048587, 65536, 4, 12, 65536, 0, 1048588, 65536, 4, 13, 65536, 0, 1048589, 65536, 4, 14, 65536, 0, 1048590, 65536, 4, 15, 65536, 0, 1048591, 65536, 4, 16, 65536, 0, 1048592, 65536, 4, 17, 65536, 0, 1048593, 65536, 4, 18, 65536, 0, 1048594, 65536, 4, 19, 65536, 0, 1048595, 65536, 4, 20, 65536, 0, 1048596, 65536, 4, 21, 65536, 0, 1048597, 65536, 4, 22, 65536, 0, 1048598, 65536, 4, 23, 65536, 0, 1048599, 65536, 4, 24, 65536, 0, 1048600, 65536, 4, 25, 65536, 0, 1048601, 65536, 4, 26, 65536, 0, 1048602, 65536, 4, 27, 65536, 0, 1048603, 65536, 4, 28, 65536, 0, 1048604, 65536, 4, 29, 0, 268435456, 65565, 0, 268435457, 131101, 0, 268435457, 196637, 0, 268435457, 262173, 0, 268435457, 327709, 0, 268435457, 393245, 0, 268435457, 458781, 0, 268435457, 524317, 0, 268435457, 589853, 0, 268435457, 655389, 0, 268435457, 720925, 0, 268435457, 786461, 0, 268435457, 851997, 0, 268435457, 917533, 0, 268435457, 983069, 0, 268435457, 1048605, 196608, 4)
+layer_1/name = "Ground"
+layer_1/z_index = 3
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Platforms"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Decorations"
+layer_3/tile_data = PackedInt32Array()
+layer_4/name = "Threats"
+layer_4/tile_data = PackedInt32Array()
+
+[node name="OpenAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oev3i")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="TransitionAreas" type="Node2D" parent="."]
+
+[node name="DoorAreaRight" type="Area2D" parent="TransitionAreas"]
+position = Vector2(1855, 1014)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/DoorAreaRight"]
+position = Vector2(-6.75, 0.5)
+shape = SubResource("RectangleShape2D_gf0ui")
+
+[node name="DoorAreaLeft" type="Area2D" parent="TransitionAreas"]
+position = Vector2(72, 1016)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/DoorAreaLeft"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_34hcn")
+
+[node name="HatchAreaBottom" type="Area2D" parent="TransitionAreas"]
+position = Vector2(950, 1020)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/HatchAreaBottom"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ahebh")
+
+[node name="HatchAreaTop" type="Area2D" parent="TransitionAreas"]
+position = Vector2(950, 64)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreas/HatchAreaTop"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_t3b10")
+
+[node name="DoorRight" type="Node2D" parent="."]
+position = Vector2(1896, 962)
+
+[node name="Closed" type="Sprite2D" parent="DoorRight"]
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+z_index = 2
+position = Vector2(-52, -2)
+texture = ExtResource("3_31jo1")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(394, 65, 24, 129)
+
+[node name="Open" type="Sprite2D" parent="DoorRight"]
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+z_index = 2
+position = Vector2(-76, -3)
+texture = ExtResource("3_31jo1")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(462, 66, 72, 128)
+
+[node name="DoorLeft" type="Node2D" parent="."]
+position = Vector2(25, 965)
+
+[node name="Closed" type="Sprite2D" parent="DoorLeft"]
+visible = false
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+z_index = 2
+position = Vector2(51, -4)
+texture = ExtResource("3_31jo1")
+region_enabled = true
+region_rect = Rect2(394, 65, 24, 129)
+
+[node name="Open" type="Sprite2D" parent="DoorLeft"]
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+z_index = 2
+position = Vector2(75, -1)
+texture = ExtResource("3_31jo1")
+region_enabled = true
+region_rect = Rect2(462, 66, 72, 128)
+
+[node name="HatchBottom" type="Node2D" parent="."]
+position = Vector2(950, 1020)
+
+[node name="Closed" type="Sprite2D" parent="HatchBottom"]
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+texture = ExtResource("3_31jo1")
+region_enabled = true
+region_rect = Rect2(36, 560, 118, 15)
+
+[node name="Open" type="Sprite2D" parent="HatchBottom"]
+visible = false
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+position = Vector2(0, -43)
+texture = ExtResource("3_31jo1")
+region_enabled = true
+region_rect = Rect2(229, 284, 120, 101)
+
+[node name="HatchTop" type="Node2D" parent="."]
+position = Vector2(950, 47)
+
+[node name="Closed" type="Sprite2D" parent="HatchTop"]
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+position = Vector2(1, 21)
+texture = ExtResource("3_31jo1")
+region_enabled = true
+region_rect = Rect2(31, 474, 128, 38)
+
+[node name="Open" type="Sprite2D" parent="HatchTop"]
+self_modulate = Color(0.780392, 0.517647, 0.101961, 1)
+position = Vector2(0, 43)
+texture = ExtResource("3_31jo1")
+region_enabled = true
+region_rect = Rect2(33, 284, 128, 125)
+
+[node name="Ladder" type="Area2D" parent="HatchTop"]
+collision_layer = 0
+collision_mask = 4
+gravity_space_override = 3
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HatchTop/Ladder"]
+position = Vector2(-1.5, 57)
+shape = SubResource("RectangleShape2D_26mlb")
+disabled = true
+
+[node name="Drops" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="TransitionAreas/DoorAreaRight" to="." method="_transition" binds= [0]]
+[connection signal="body_entered" from="TransitionAreas/DoorAreaLeft" to="." method="_transition" binds= [8]]
+[connection signal="body_entered" from="TransitionAreas/HatchAreaBottom" to="." method="_transition" binds= [4]]
+[connection signal="body_entered" from="TransitionAreas/HatchAreaTop" to="." method="_transition" binds= [12]]
+[connection signal="body_entered" from="HatchTop/Ladder" to="." method="_on_ladder_triggered" binds= [true]]
+[connection signal="body_exited" from="HatchTop/Ladder" to="." method="_on_ladder_triggered" binds= [false]]

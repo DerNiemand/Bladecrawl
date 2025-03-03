@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2h6xbw4f3cwp"]
+
+[ext_resource type="Texture2D" uid="uid://cbjsouryk4lxq" path="res://icon.svg" id="1_cgvou"]
+[ext_resource type="Script" path="res://Environment/flame_trap.gd" id="1_jveny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n07od"]
+size = Vector2(20, 102)
+
+[node name="FlameTrap" type="Area2D"]
+script = ExtResource("1_jveny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -51)
+shape = SubResource("RectangleShape2D_n07od")
+
+[node name="BaseSprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.341176, 0.341176, 0.341176, 1)
+scale = Vector2(0.34375, 0.203125)
+texture = ExtResource("1_cgvou")
+
+[node name="FlameSprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(2, 0, 0, 1)
+position = Vector2(0, -51)
+scale = Vector2(0.171875, 0.796875)
+texture = ExtResource("1_cgvou")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

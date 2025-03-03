@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://prflggpyb6ei"]
+
+[ext_resource type="PackedScene" uid="uid://qrop3sotky6n" path="res://Levels/base_level.tscn" id="1_4esq1"]
+[ext_resource type="Script" path="res://Levels/tutorial_level_enemy.gd" id="2_n75lb"]
+[ext_resource type="Texture2D" uid="uid://d4jccaxcoi2ht" path="res://Assets/Rooms/BladecrawlSignAttak.png" id="3_e6vf5"]
+
+[sub_resource type="Curve2D" id="Curve2D_oc2pj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -246, -2, 0, 0, 0, 0, 246, -2)
+}
+point_count = 2
+
+[node name="Tutorial_Level_3" instance=ExtResource("1_4esq1")]
+script = ExtResource("2_n75lb")
+enemy_amount = 1
+
+[node name="TileMap" parent="." index="0"]
+layer_1/tile_data = PackedInt32Array(655361, 458752, 2, 655362, 393216, 2, 655363, 327680, 2, 655364, 393216, 2, 655365, 458752, 2, 655366, 393216, 2, 655367, 327680, 2, 655368, 458752, 2, 655381, 458752, 2, 655382, 327680, 2, 655383, 327680, 2, 655384, 458752, 2, 655385, 458752, 2, 655386, 393216, 2, 655387, 393216, 2, 655388, 458752, 2, 983054, 458752, 4, 917518, 458752, 4, 851982, 65536, 4, 851983, 65536, 4, 917519, 458752, 4, 983055, 458752, 4, 983053, 65536, 1, 917517, 65536, 1, 851981, 131072, 5, 851984, 131072, 4, 917520, 0, 1, 983056, 0, 1, 1048592, 196608, 5, 1048591, 458752, 4, 1048590, 458752, 4, 1048589, 196608, 4, 655380, 458752, 2, 655379, 393216, 2, 655378, 262144, 2, 655369, 327680, 2, 655370, 327680, 2, 655371, 524288, 2, 458765, 262144, 2, 458766, 458752, 2, 458767, 393216, 2, 458768, 524288, 2, 23, 458752, 4, 65559, 65536, 0, 65560, 327680, 0, 65561, 458752, 4, 131097, 131072, 0, 131098, 327680, 0, 131099, 458752, 4, 196635, 327680, 0, 196636, 458752, 4, 262172, 327680, 0, 262173, 458752, 4, 327709, 327680, 0, 65562, 458752, 4, 131100, 458752, 4, 196637, 458752, 4, 65564, 458752, 4, 65563, 458752, 4, 26, 458752, 4, 25, 458752, 4, 24, 458752, 4, 27, 458752, 4, 28, 458752, 4, 29, 458752, 4, 65565, 458752, 4, 131101, 458752, 4, 327708, 196608, 1, 262171, 196608, 1, 196634, 196608, 1, 131096, 196608, 1, 16, 327680, 0, 65552, 196608, 1, 65553, 327680, 0, 131089, 196608, 1, 131090, 65536, 0, 131091, 65536, 0, 131092, 65536, 0, 131093, 262144, 1, 65557, 0, 0, 65558, 65536, 0, 22, 458752, 4, 21, 458752, 4, 65556, 458752, 4, 65555, 458752, 4, 65554, 458752, 4, 18, 458752, 4, 17, 458752, 4, 19, 458752, 4, 20, 458752, 4, 5, 327680, 0, 65541, 196608, 1, 65542, 65536, 0, 65543, 131072, 0, 65544, 131072, 0, 65545, 65536, 0, 65546, 327680, 0, 131082, 196608, 1, 131083, 65536, 0, 131084, 262144, 1, 65548, 0, 0, 65547, 458752, 4, 11, 458752, 4, 10, 458752, 4, 9, 458752, 4, 8, 458752, 4, 7, 458752, 4, 6, 458752, 4, 12, 458752, 4, 13, 0, 0, 65549, 262144, 1, 131077, 131072, 1, 131078, 131072, 1, 131080, 131072, 1, 131081, 131072, 1, 196618, 131072, 1, 131085, 131072, 1, 65550, 131072, 1, 65551, 131072, 1, 196625, 131072, 1, 196626, 131072, 1, 196627, 131072, 1, 131094, 131072, 1, 131095, 131072, 1, 196632, 131072, 1, 196633, 131072, 1, 262170, 131072, 1, 327707, 131072, 1, 393244, 131072, 1)
+layer_3/tile_data = PackedInt32Array(917518, 327680, 8, 589846, 131072, 8, 589850, 196608, 7, 786447, 131072, 7, 1048596, 393216, 805306374)
+
+[node name="HatchAreaBottom" parent="TransitionAreas" index="2"]
+collision_mask = 0
+
+[node name="HatchAreaTop" parent="TransitionAreas" index="3"]
+collision_mask = 0
+
+[node name="HatchBottom" parent="." index="6"]
+visible = false
+
+[node name="HatchTop" parent="." index="7"]
+visible = false
+
+[node name="BladecrawlSignAttak" type="Sprite2D" parent="." index="9"]
+position = Vector2(320, 384)
+texture = ExtResource("3_e6vf5")
+
+[node name="Enemies" type="Node2D" parent="." index="10"]
+
+[node name="EnemySpawns" type="Node2D" parent="." index="11"]
+
+[node name="EnemySpawn1" type="Path2D" parent="EnemySpawns" index="0"]
+position = Vector2(1544, 624)
+curve = SubResource("Curve2D_oc2pj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawns/EnemySpawn1" index="0"]
+position = Vector2(-246, -2)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_appeared_on_screen"]

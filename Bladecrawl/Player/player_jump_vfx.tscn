@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://ceb4ndmguih47"]
+
+[ext_resource type="Texture2D" uid="uid://dkynwhohmnsih" path="res://Assets/Player/Jumping/PBA_jump_vfx_0.png" id="1_va7ft"]
+[ext_resource type="Script" path="res://Player/player_jump_vfx.gd" id="1_ycwrm"]
+[ext_resource type="Texture2D" uid="uid://c08dajuk3mi6g" path="res://Assets/Player/Jumping/PBA_jump_vfx_1.png" id="2_sa0b6"]
+[ext_resource type="Texture2D" uid="uid://cmgjmsm4t7ke7" path="res://Assets/Player/Jumping/PBA_jump_vfx_2.png" id="3_5r3fk"]
+[ext_resource type="Texture2D" uid="uid://rk25d65407yn" path="res://Assets/Player/Jumping/PBA_jump_vfx_3.png" id="4_0mqvd"]
+[ext_resource type="Texture2D" uid="uid://ejgfa86sgly8" path="res://Assets/Player/Jumping/PBA_jump_vfx_4.png" id="5_hab5l"]
+[ext_resource type="Texture2D" uid="uid://dwwdwpngbu6eh" path="res://Assets/Player/Jumping/PBA_jump_vfx_5.png" id="6_0338h"]
+[ext_resource type="Texture2D" uid="uid://bpfl3ihhdwcw1" path="res://Assets/Player/Jumping/PBA_jump_vfx_6.png" id="7_b5jbr"]
+[ext_resource type="Texture2D" uid="uid://cs2qb56jyudc1" path="res://Assets/Player/Jumping/PBA_jump_vfx_7.png" id="8_7u6sj"]
+[ext_resource type="Texture2D" uid="uid://bt2ofyk2ofk6k" path="res://Assets/Player/Jumping/PBA_jump_vfx_8.png" id="9_q6dwu"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nk5np"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.25
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_33s26"]
+resource_local_to_scene = true
+frames = 9
+speed_scale = 18.0
+frame_0/texture = ExtResource("1_va7ft")
+frame_1/texture = ExtResource("2_sa0b6")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_5r3fk")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_0mqvd")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_hab5l")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_0338h")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_b5jbr")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("8_7u6sj")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("9_q6dwu")
+frame_8/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7tp44"]
+resource_local_to_scene = true
+frames = 9
+speed_scale = 18.0
+frame_1/duration = 1.0
+frame_2/duration = 1.0
+frame_3/duration = 1.0
+frame_4/duration = 1.0
+frame_5/duration = 1.0
+frame_6/duration = 1.0
+frame_7/duration = 1.0
+frame_8/duration = 1.0
+
+[node name="PlayerJumpVFX" type="Node2D"]
+top_level = true
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_ycwrm")
+
+[node name="Right" type="GPUParticles2D" parent="."]
+position = Vector2(320, 340)
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_nk5np")
+texture = SubResource("AnimatedTexture_33s26")
+lifetime = 0.5
+one_shot = true
+
+[node name="Left" type="GPUParticles2D" parent="."]
+position = Vector2(-320, 340)
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_nk5np")
+texture = SubResource("AnimatedTexture_7tp44")
+lifetime = 0.5
+one_shot = true
+
+[connection signal="finished" from="Right" to="." method="_on_emiting_finished"]

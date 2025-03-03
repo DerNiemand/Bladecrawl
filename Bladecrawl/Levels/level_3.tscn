@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://6h5m4bug1wb0"]
+
+[ext_resource type="PackedScene" uid="uid://qrop3sotky6n" path="res://Levels/base_level.tscn" id="1_mybo5"]
+[ext_resource type="Script" path="res://Levels/level_enemy.gd" id="2_mu7qo"]
+
+[sub_resource type="Curve2D" id="Curve2D_4xg8a"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 134, 12, 0, 0, 0, 0, 538, 14)
+}
+point_count = 2
+
+[node name="Level3" instance=ExtResource("1_mybo5")]
+script = ExtResource("2_mu7qo")
+enemy_amount = 3
+
+[node name="TileMap" parent="." index="0"]
+layer_1/tile_data = PackedInt32Array(851969, 458752, 2, 851970, 327680, 2, 851968, 0, 2, 851971, 524288, 2, 851996, 458752, 2, 851997, 65536, 2, 851995, 393216, 2, 851994, 262144, 2, 655366, 327680, 2, 655367, 327680, 2, 655365, 262144, 2, 655368, 458752, 2, 655369, 393216, 2, 655370, 393216, 2, 655371, 393216, 2, 655372, 393216, 2, 655373, 458752, 2, 655374, 327680, 2, 655375, 327680, 2, 655376, 458752, 2, 655377, 327680, 2, 655378, 458752, 2, 655379, 393216, 2, 655380, 393216, 2, 655381, 393216, 2, 655382, 458752, 2, 655383, 458752, 2, 655384, 524288, 2, 458753, 393216, 2, 458754, 458752, 2, 458752, 0, 2, 458755, 524288, 2, 458780, 458752, 2, 458781, 65536, 2, 458779, 327680, 2, 458778, 262144, 2, 262150, 327680, 2, 262151, 458752, 2, 262149, 262144, 2, 262152, 327680, 2, 262153, 524288, 2, 262167, 327680, 2, 262168, 524288, 2, 262166, 458752, 2, 262165, 393216, 2, 262164, 262144, 2, 262157, 327680, 2, 262158, 393216, 2, 262156, 327680, 2, 262159, 458752, 2, 262160, 458752, 2, 262161, 327680, 2, 262162, 524288, 2, 262155, 262144, 2)
+layer_3/tile_data = PackedInt32Array(589833, 196608, 7, 589843, 196608, 7, 589846, 196608, 268435463, 983047, 131072, 7, 1048584, 458752, 1610612742)
+layer_4/tile_data = PackedInt32Array(983059, 1, 131072, 983060, 1, 131072, 983061, 1, 131072, 983050, 1, 131072, 983049, 1, 131072, 983048, 1, 131072, 65555, 1, 65536, 65546, 1, 65536)
+
+[node name="EnemySpawns" type="Node2D" parent="." index="8"]
+
+[node name="EnemySpawn1" type="Path2D" parent="EnemySpawns" index="0"]
+position = Vector2(365, 607)
+curve = SubResource("Curve2D_4xg8a")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawns/EnemySpawn1" index="0"]
+position = Vector2(134, 12)
+rotation = 0.00495045
+
+[node name="EnemySpawn2" type="Path2D" parent="EnemySpawns" index="1"]
+position = Vector2(960, 607)
+curve = SubResource("Curve2D_4xg8a")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawns/EnemySpawn2" index="0"]
+position = Vector2(134, 12)
+rotation = 0.00495045
+
+[node name="Enemies" type="Node2D" parent="." index="9"]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_appeared_on_screen"]

@@ -1,0 +1,76 @@
+[gd_scene load_steps=34 format=3 uid="uid://da58tj6uxfukq"]
+
+[ext_resource type="PackedScene" uid="uid://vmyvya3dx3j5" path="res://Levels/level_0.tscn" id="1_alht6"]
+[ext_resource type="PackedScene" uid="uid://bibh7a2fok5fc" path="res://Levels/level_1.tscn" id="2_qjt6q"]
+[ext_resource type="PackedScene" uid="uid://f4lpnah5ucoc" path="res://Levels/level_2.tscn" id="3_6yhdb"]
+[ext_resource type="PackedScene" uid="uid://bx73ixnhy0lx7" path="res://Levels/level_10.tscn" id="3_yu0ov"]
+[ext_resource type="PackedScene" uid="uid://6h5m4bug1wb0" path="res://Levels/level_3.tscn" id="4_hkqel"]
+[ext_resource type="PackedScene" uid="uid://bfskf52okb6jk" path="res://Levels/test_level.tscn" id="4_lyn7e"]
+[ext_resource type="PackedScene" uid="uid://bwx161a0ao5nr" path="res://Levels/level_11.tscn" id="4_xh2c0"]
+[ext_resource type="PackedScene" uid="uid://kjjr6jjmibmw" path="res://Levels/level_200.tscn" id="5_61qxb"]
+[ext_resource type="PackedScene" uid="uid://ddevcif5un5sk" path="res://Levels/level_4.tscn" id="5_ki381"]
+[ext_resource type="PackedScene" uid="uid://c6gas82buoqyc" path="res://Levels/level_5.tscn" id="6_fp73s"]
+[ext_resource type="PackedScene" uid="uid://cda78h3hb0wm2" path="res://Levels/level_201.tscn" id="6_iv0yt"]
+[ext_resource type="PackedScene" uid="uid://dtge5k3d5j88e" path="res://Levels/level_12.tscn" id="6_wuunt"]
+[ext_resource type="PackedScene" uid="uid://ck2f7bcg0v8vu" path="res://Levels/level_212.tscn" id="7_3uqwm"]
+[ext_resource type="PackedScene" uid="uid://rs1ov4hndahw" path="res://Levels/level_6.tscn" id="7_ecr6x"]
+[ext_resource type="Script" path="res://Main/level_map.gd" id="8_r0mx4"]
+[ext_resource type="PackedScene" uid="uid://b26gua8e0tuua" path="res://Levels/level_213.tscn" id="8_vhh68"]
+[ext_resource type="PackedScene" uid="uid://dslng0mknexxp" path="res://Levels/level_284.tscn" id="9_hwyxe"]
+[ext_resource type="PackedScene" uid="uid://dpjliidtu3xe7" path="res://Levels/level_214.tscn" id="12_cgpg5"]
+[ext_resource type="PackedScene" uid="uid://ck67qhj035dv6" path="res://Levels/level_215.tscn" id="13_q7x8w"]
+[ext_resource type="PackedScene" uid="uid://pob54emuqj4r" path="res://Levels/level_224.tscn" id="14_6vmbp"]
+[ext_resource type="PackedScene" uid="uid://bu4ccv86mgm5d" path="res://Levels/level_236.tscn" id="15_f1cc2"]
+[ext_resource type="PackedScene" uid="uid://blq87ooefe4an" path="res://Levels/level_7.tscn" id="15_waiuy"]
+[ext_resource type="PackedScene" uid="uid://cq27t2t0o6dqk" path="res://Levels/level_248.tscn" id="16_m3rjx"]
+[ext_resource type="PackedScene" uid="uid://bjwc7633tfu8p" path="res://Levels/level_8.tscn" id="16_ojlo5"]
+[ext_resource type="PackedScene" uid="uid://bbwkr1s0k7iqr" path="res://Levels/level_9.tscn" id="17_2cm26"]
+[ext_resource type="PackedScene" uid="uid://d00m4c6figy3g" path="res://Levels/level_260.tscn" id="17_5ugts"]
+[ext_resource type="PackedScene" uid="uid://byv2cgsg6s0wq" path="res://Levels/level_261.tscn" id="18_705qc"]
+[ext_resource type="PackedScene" uid="uid://dww6jdpdfgj6p" path="res://Levels/level_262.tscn" id="19_47g0l"]
+[ext_resource type="PackedScene" uid="uid://cwv2e3fr2uvy5" path="res://Levels/level_272.tscn" id="20_ke7ud"]
+[ext_resource type="PackedScene" uid="uid://dmjqh7i8ioo3v" path="res://Levels/level_285.tscn" id="22_lm1mc"]
+[ext_resource type="PackedScene" uid="uid://fcr675gh37s2" path="res://Levels/level_300.tscn" id="24_lchpu"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fp5au"]
+resource_name = "Levels"
+scenes/0/scene = ExtResource("1_alht6")
+scenes/1/scene = ExtResource("2_qjt6q")
+scenes/2/scene = ExtResource("3_6yhdb")
+scenes/3/scene = ExtResource("4_hkqel")
+scenes/4/scene = ExtResource("5_ki381")
+scenes/5/scene = ExtResource("6_fp73s")
+scenes/6/scene = ExtResource("7_ecr6x")
+scenes/7/scene = ExtResource("15_waiuy")
+scenes/8/scene = ExtResource("16_ojlo5")
+scenes/9/scene = ExtResource("17_2cm26")
+scenes/10/scene = ExtResource("3_yu0ov")
+scenes/11/scene = ExtResource("4_xh2c0")
+scenes/12/scene = ExtResource("6_wuunt")
+scenes/200/scene = ExtResource("5_61qxb")
+scenes/201/scene = ExtResource("6_iv0yt")
+scenes/212/scene = ExtResource("7_3uqwm")
+scenes/213/scene = ExtResource("8_vhh68")
+scenes/214/scene = ExtResource("12_cgpg5")
+scenes/215/scene = ExtResource("13_q7x8w")
+scenes/224/scene = ExtResource("14_6vmbp")
+scenes/236/scene = ExtResource("15_f1cc2")
+scenes/248/scene = ExtResource("16_m3rjx")
+scenes/260/scene = ExtResource("17_5ugts")
+scenes/261/scene = ExtResource("18_705qc")
+scenes/262/scene = ExtResource("19_47g0l")
+scenes/272/scene = ExtResource("20_ke7ud")
+scenes/284/scene = ExtResource("9_hwyxe")
+scenes/285/scene = ExtResource("22_lm1mc")
+scenes/300/scene = ExtResource("24_lchpu")
+scenes/1000/scene = ExtResource("4_lyn7e")
+
+[sub_resource type="TileSet" id="TileSet_kiqah"]
+tile_size = Vector2i(1920, 1080)
+sources/0 = SubResource("TileSetScenesCollectionSource_fp5au")
+
+[node name="LevelMap" type="TileMap"]
+position = Vector2(-960, -540)
+tile_set = SubResource("TileSet_kiqah")
+format = 2
+script = ExtResource("8_r0mx4")
